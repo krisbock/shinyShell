@@ -9,20 +9,20 @@ curl -O https://raw.githubusercontent.com/morhetz/gruvbox/master/colors/gruvbox.
 cd ~/
 cp $DIR/.vimrc ~/
 
-sudo apt-get install mc
+sudo apt-get install -y mc
 
 cp $DIR/.tmux.conf ~/
 
-echo 'alias mc="mc -x"' >> ~/.bashrc
-echo 'export CLICOLOR=1' >> ~/.bashrc
-echo 'source ~/.git-completion.sh' >> ~/.bashrc
-echo 'PS1='\[\033[37m\]\W\[\033[0m\]$(__git_ps1 " (\[\033[35m\]%s\[\033[0m\])") \$ '' >> ~/.bashrc
-echo 'GIT_PS1_SHOWDIRTYSTATE=1' >> ~/.bashrc
-echo 'GIT_PS1_SHOWSTASHSTATE=1' >> ~/.bashrc
-echo 'GIT_PS1_SHOWUNTRACKEDFILES=1' >> ~/.bashrc
-echo 'GIT_PS1_SHOWUPSTREAM="auto"' >> ~/.bashrc
+echo alias mc="mc -x" >> ~/.bashrc
+echo export CLICOLOR=1 >> ~/.bashrc
+echo source ~/.git-completion.sh >> ~/.bashrc
+echo PS1='\[\033[37m\]\W\[\033[0m\]$(__git_ps1 " (\[\033[35m\]%s\[\033[0m\])") \$ ' >> ~/.bashrc
+echo GIT_PS1_SHOWDIRTYSTATE=1 >> ~/.bashrc
+echo GIT_PS1_SHOWSTASHSTATE=1 >> ~/.bashrc
+echo GIT_PS1_SHOWUNTRACKEDFILES=1 >> ~/.bashrc
+echo GIT_PS1_SHOWUPSTREAM="auto" >> ~/.bashrc
 
-sudo apt-get install git bash-completion
+sudo apt-get install -y git bash-completion
 
 # change console colours
 wget https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-light
