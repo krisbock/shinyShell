@@ -13,10 +13,10 @@ sudo apt-get install -y mc
 
 cp $DIR/.tmux.conf ~/
 
-echo alias mc="mc -x" >> ~/.bashrc
+echo alias mc=\'mc -x\' >> ~/.bashrc
 echo export CLICOLOR=1 >> ~/.bashrc
 echo source ~/.git-completion.sh >> ~/.bashrc
-echo PS1='\[\033[37m\]\W\[\033[0m\]$(__git_ps1 " (\[\033[35m\]%s\[\033[0m\])") \$ ' >> ~/.bashrc
+echo PS1=\'\[\033[37m\]\W\[\033[0m\]$(__git_ps1 " (\[\033[35m\]%s\[\033[0m\])") \$ \' >> ~/.bashrc
 echo GIT_PS1_SHOWDIRTYSTATE=1 >> ~/.bashrc
 echo GIT_PS1_SHOWSTASHSTATE=1 >> ~/.bashrc
 echo GIT_PS1_SHOWUNTRACKEDFILES=1 >> ~/.bashrc
@@ -27,3 +27,4 @@ sudo apt-get install -y git bash-completion
 # change console colours
 wget https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-light
 mv dircolors.ansi-light .dircolors
+echo \'set bell-style none\' >> ~/.inputrc
