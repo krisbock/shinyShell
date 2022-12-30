@@ -16,7 +16,9 @@ cp $DIR/.tmux.conf ~/
 echo alias mc=\'mc -x\' >> ~/.bashrc
 echo export CLICOLOR=1 >> ~/.bashrc
 echo source ~/.git-completion.sh >> ~/.bashrc
-echo PS1='\[\033[37m\]\W\[\033[0m\]$(__git_ps1 " (\[\033[35m\]%s\[\033[0m\])") \$ ' >> ~/.bashrc
+cat <<'EOF' >> ~/.bashrc
+PS1='\[\033[37m\]\W\[\033[0m\]$(__git_ps1 " (\[\033[35m\]%s\[\033[0m\])") \$ '
+EOF
 echo GIT_PS1_SHOWDIRTYSTATE=1 >> ~/.bashrc
 echo GIT_PS1_SHOWSTASHSTATE=1 >> ~/.bashrc
 echo GIT_PS1_SHOWUNTRACKEDFILES=1 >> ~/.bashrc
@@ -28,3 +30,17 @@ sudo apt-get install -y git bash-completion
 wget https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-light
 mv dircolors.ansi-light .dircolors
 echo \'set bell-style none\' >> ~/.inputrc
+
+# add Powerline
+sudo apt install -y golang-go
+go install github.com/justjanne/powerline-go@latest
+
+cat <<'EOF' >> ~/.bashrc
+GOPATH=$HOME/go
+function _update_ps1() {
+    PS1="$($GOPATH/bin/powerline-go -error $?)"
+}
+if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+EOF
