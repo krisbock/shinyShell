@@ -15,7 +15,6 @@ cp $DIR/.tmux.conf ~/
 
 echo alias mc=\'mc -x\' >> ~/.bashrc
 echo export CLICOLOR=1 >> ~/.bashrc
-echo source ~/.git-completion.sh >> ~/.bashrc
 cat <<'EOF' >> ~/.bashrc
 PS1='\[\033[37m\]\W\[\033[0m\]$(__git_ps1 " (\[\033[35m\]%s\[\033[0m\])") \$ '
 EOF
