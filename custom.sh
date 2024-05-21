@@ -29,7 +29,7 @@ sudo apt-get install -y git bash-completion
 # change console colours
 wget https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-light
 mv dircolors.ansi-light .dircolors
-echo \'set bell-style none\' >> ~/.inputrc
+echo 'set bell-style none' >> ~/.inputrc
 
 # add Powerline
 sudo apt install -y golang-go
